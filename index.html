@@ -4,8 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>軟糖媽咪Ivy的閱讀分享</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZS5ELSJZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8BZS5ELSJZ');
+</script>
 <!-- 不蒜子計數器 -->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <style>
@@ -38,13 +48,30 @@
     padding: 1.75rem 1.5rem 1.25rem;
     text-align: center;
   }
+  .header-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 8px;
+    border: 2px solid var(--border);
+    box-shadow: 0 2px 8px rgba(140,110,70,0.15);
+    display: inline-block;
+  }
   .site-header .logo {
     font-family: 'Noto Serif TC', serif;
-    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
     font-weight: 700;
     color: var(--brown-dark);
     letter-spacing: 0.08em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
   }
+  .logo-name { margin: 0 4px 0 10px; }
+  .logo-sep  { font-weight: 400; color: var(--text-muted); font-size: 0.75em; margin: 0 2px; }
+  .logo-book { margin-left: 6px; }
   .site-header .tagline {
     margin-top: 5px;
     font-size: 12px;
@@ -308,7 +335,11 @@
 <body>
 
 <header class="site-header">
-  <div class="logo">📚 軟糖媽咪Ivy的閱讀分享</div>
+  <div class="logo">
+    <img src="icon-192.png" alt="軟糖媽咪Ivy" class="header-avatar">
+    <span class="logo-name">軟糖媽咪Ivy 的閱讀分享</span>
+    <span class="logo-book">📚</span>
+  </div>
   <div class="tagline">每一本書，都是一次相遇</div>
   <div class="divider"></div>
 
