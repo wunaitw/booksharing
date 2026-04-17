@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>軟糖媽咪Ivy的閱讀分享</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<!-- 不蒜子計數器 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #faf7f2;
+    --warm: #f0ebe0;
+    --brown-light: #d4c4a8;
+    --brown: #8b6f47;
+    --brown-dark: #5c4a32;
+    --ink: #2c2418;
+    --accent: #c17f3e;
+    --text-muted: #9a8570;
+    --card-bg: #ffffff;
+    --border: #e8dfd0;
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── 頁首 ── */
+  .site-header {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 1.75rem 1.5rem 1.25rem;
+    text-align: center;
+  }
+  .site-header .logo {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--brown-dark);
+    letter-spacing: 0.08em;
+  }
+  .site-header .tagline {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+  .site-header .divider {
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    margin: 12px auto 10px;
+    border-radius: 2px;
+  }
+
+  /* 社群按鈕列 */
+  .social-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .social-btn {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    transition: background 0.18s, border-color 0.18s;
+  }
+  .social-btn:hover { background: #fff; border-color: var(--brown-light); }
+  .social-btn svg { width: 15px; height: 15px; }
+
+  /* 瀏覽人數列 */
+  .counter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 8px 0 2px;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+  .counter-bar span b { color: var(--accent); font-weight: 600; }
+
+  /* ── 篩選器 ── */
+  .wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+  .filters {
+    background: rgba(255,255,255,0.75);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .filter-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .filter-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    min-width: 36px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .pill {
+    padding: 5px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.8);
+    color: var(--brown);
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .pill:hover { border-color: var(--brown-light); color: var(--brown-dark); background: #fff; }
+  .pill.on { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 500; }
+
+  /* ── 書卡列表 ── */
+  .book-list { display: flex; flex-direction: column; gap: 2rem; }
+
+  /* ── 單張書卡 ── */
+  .book-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 12px rgba(140,110,70,0.07);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+  .book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(140,110,70,0.14);
+  }
+  .book-card.hidden { display: none; }
+
+  /* 書封照片 */
+  .book-cover {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--warm);
+    position: relative;
+  }
+  .book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .book-card:hover .book-cover img { transform: scale(1.03); }
+
+  /* 分類標籤（左上） */
+  .cover-badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    background: rgba(255,255,255,0.88);
+    color: var(--brown-dark);
+    border: 1px solid rgba(255,255,255,0.6);
+    backdrop-filter: blur(4px);
+  }
+  /* 出版社標籤（右上） */
+  .publisher-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    background: rgba(255,255,255,0.75);
+    color: var(--text-muted);
+    backdrop-filter: blur(4px);
+  }
+
+  /* 卡片內容 */
+  .book-body {
+    padding: 1.25rem 1.4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .book-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .book-meta .dot-sep { opacity: 0.4; }
+  .book-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: 700;
+    color: var(--brown-dark);
+    line-height: 1.5;
+  }
+  .book-author {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .book-excerpt {
+    font-size: 13.5px;
+    color: #5a4e42;
+    line-height: 1.85;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* 底部操作列 */
+  .book-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0.9rem 1.4rem;
+    border-top: 1px solid var(--border);
+    background: #fdfaf6;
+  }
+  .book-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    color: var(--brown);
+    background: var(--warm);
+    border: 1px solid var(--brown-light);
+  }
+
+  /* 閱讀全文按鈕 */
+  .read-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.18s, transform 0.18s;
+    flex-shrink: 0;
+  }
+  .read-btn:hover { background: var(--brown-dark); transform: scale(1.03); }
+  .read-btn svg { width: 13px; height: 13px; }
+
+  /* 博客來購買按鈕 */
+  .buy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background: #fff;
+    color: #d04a00;
+    border: 1.5px solid #d04a00;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, transform 0.18s;
+    flex-shrink: 0;
+  }
+  .buy-btn:hover { background: #d04a00; color: #fff; transform: scale(1.03); }
+
+  /* 無結果 */
+  .no-results {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--text-muted);
+    font-size: 14px;
+    display: none;
+  }
+
+  /* ── 頁尾 ── */
+  .site-footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 11px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">📚 軟糖媽咪Ivy的閱讀分享</div>
+  <div class="tagline">每一本書，都是一次相遇</div>
+  <div class="divider"></div>
+
+  <!-- 社群帳號 -->
+  <div class="social-row">
+    <a class="social-btn" href="https://www.instagram.com/ivyhuanglichia" target="_blank" title="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#c13584" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="#c13584" stroke="none"/>
+      </svg>
+    </a>
+    <a class="social-btn" href="https://youtube.com/channel/UC80zKCgzP-OPnzbIzzC47Rg" target="_blank" title="YouTube">
+      <svg viewBox="0 0 24 24" fill="#ff0000">
+        <path d="M23 7s-.3-2-1.2-2.8c-1.1-1.2-2.4-1.2-3-1.3C16.2 2.8 12 2.8 12 2.8s-4.2 0-6.8.1c-.6.1-1.9.1-3 1.3C1.3 5 1 7 1 7S.7 9.1.7 11.3v2c0 2.1.3 4.2.3 4.2s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C7.5 21.6 12 21.6 12 21.6s4.2 0 6.8-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.3-2.1.3-4.2v-2C23.3 9.1 23 7 23 7zM9.7 15.5V8.4l8.1 3.6-8.1 3.5z"/>
+      </svg>
+    </a>
+    <a class="social-btn" href="https://www.threads.com/@ivyhuanglichia" target="_blank" title="Threads">
+      <svg viewBox="0 0 24 24" fill="#1a1a1a">
+        <path d="M12.9 11.5c-.2-.1-2.5-.7-3.5-.3-.5.2-.8.6-.8 1.1 0 .6.4 1 1.2 1.3 1.5.5 3.2-.1 3.8-1.4.1-.2.2-.4.2-.7h-.9zm1.5-1.7c-.5-.9-1.4-1.5-2.4-1.7-1.4-.3-2.8.1-3.8 1.1-.8.8-1.2 2-1.1 3.1.1 1.3.8 2.4 1.9 3 .9.5 2 .6 3 .3 1.2-.4 2.2-1.3 2.6-2.5.5-1.2.4-2.4-.2-3.3zm3.1-4c-1.4-1.7-3.5-2.7-5.7-2.7-2 0-3.9.8-5.3 2.2C5.2 6.7 4.5 8.8 4.6 11c.1 2.1 1 4 2.6 5.4 1.5 1.3 3.5 2 5.5 1.9 1.7-.1 3.4-.7 4.7-1.9 1.4-1.3 2.2-3.1 2.2-5 0-1.5-.5-3-1.5-4.1l-.6-.5z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- 不蒜子瀏覽人數 -->
+  <div class="counter-bar">
+    <span>👁 本站總瀏覽：<b><span id="busuanzi_value_site_pv">...</span></b> 次</span>
+    <span>👤 累計訪客：<b><span id="busuanzi_value_site_uv">...</span></b> 人</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ── 篩選器 ── -->
+  <div class="filters">
+    <div class="filter-row" id="cat-filters">
+      <span class="filter-label">類別</span>
+      <span class="pill on" data-cat="all">全部</span>
+      <span class="pill" data-cat="小說">小說</span>
+      <span class="pill" data-cat="散文">散文</span>
+      <span class="pill" data-cat="親子">親子</span>
+      <span class="pill" data-cat="心理">心理</span>
+      <span class="pill" data-cat="知識">知識</span>
+      <span class="pill" data-cat="繪本">繪本</span>
+    </div>
+    <div class="filter-row" id="pub-filters">
+      <span class="filter-label">出版社</span>
+      <span class="pill on" data-pub="all">全部</span>
+      <span class="pill" data-pub="天下文化">天下文化</span>
+      <span class="pill" data-pub="親子天下">親子天下</span>
+      <span class="pill" data-pub="遠流">遠流</span>
+      <span class="pill" data-pub="木馬文化">木馬文化</span>
+      <span class="pill" data-pub="其他">其他</span>
+    </div>
+  </div>
+
+  <!-- ── 書卡列表 ── -->
+  <!-- 新增書卡時，記得在 data-cat 填類別、data-pub 填出版社，要跟上面篩選器一致 -->
+  <div class="book-list" id="book-list">
+
+    <!-- 書卡範例 1 -->
+    <article class="book-card" data-cat="小說" data-pub="天下文化">
+      <div class="book-cover">
+        <!-- 把 src 換成你的書封照片網址（Google Drive / Imgur 都可以） -->
+        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80" alt="書名封面">
+        <span class="cover-badge">小說</span>
+        <span class="publisher-badge">天下文化</span>
+      </div>
+      <div class="book-body">
+        <div class="book-meta">
+          <span>2026 / 04 / 10</span>
+          <span class="dot-sep">·</span>
+          <span>Ivy 推薦</span>
+        </div>
+        <div class="book-title">書名：請在這裡填入書名</div>
+        <div class="book-author">作者：作者姓名</div>
+        <div class="book-excerpt">
+          這裡是摘要或你對這本書的感受，可以寫兩三句話吸引大家想繼續讀下去。
+          例如：這本書讓我重新思考了時間與記憶的關係，很適合喜歡安靜閱讀的朋友。
+          點「閱讀全文」可以看到完整的書評與心得。
+        </div>
+      </div>
+      <div class="book-footer">
+        <div class="book-tags">
+          <span class="tag">🌿 療癒</span>
+          <span class="tag">📖 長篇</span>
+        </div>
+        <a class="read-btn" href="posts/book1.html">
+          閱讀全文
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+        <!-- 把 href 換成博客來商品連結 -->
+        <a class="buy-btn" href="https://www.books.com.tw/" target="_blank">🛒 博客來購買</a>
+      </div>
+    </article>
+
+    <!-- 書卡範例 2 -->
+    <article class="book-card" data-cat="散文" data-pub="木馬文化">
+      <div class="book-cover">
+        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80" alt="書名封面">
+        <span class="cover-badge">散文</span>
+        <span class="publisher-badge">木馬文化</span>
+      </div>
+      <div class="book-body">
+        <div class="book-meta">
+          <span>2026 / 04 / 03</span>
+          <span class="dot-sep">·</span>
+          <span>Ivy 推薦</span>
+        </div>
+        <div class="book-title">書名：請在這裡填入書名</div>
+        <div class="book-author">作者：作者姓名</div>
+        <div class="book-excerpt">
+          這裡是另一本書的摘要。可以寫你最喜歡的一段話，或是讀完之後的感受。
+          這本散文集文字非常細膩，每篇都不長，很適合睡前慢慢讀。
+        </div>
+      </div>
+      <div class="book-footer">
+        <div class="book-tags">
+          <span class="tag">✍️ 散文</span>
+          <span class="tag">🌙 睡前讀</span>
+        </div>
+        <a class="read-btn" href="posts/book2.html">
+          閱讀全文
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+        <!-- 把 href 換成博客來商品連結 -->
+        <a class="buy-btn" href="https://www.books.com.tw/" target="_blank">🛒 博客來購買</a>
+      </div>
+    </article>
+
+    <div class="no-results" id="no-results">沒有符合的書評 📭</div>
+
+  </div><!-- /book-list -->
+</main>
+
+<footer class="site-footer">
+  © 2026 booksharing.wunaitw.com · 軟糖媽咪Ivy
+</footer>
+
+<script>
+  // ── 篩選器邏輯 ──
+  let activeCat = 'all', activePub = 'all';
+
+  function filterCards() {
+    const cards = document.querySelectorAll('#book-list .book-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const catOk = activeCat === 'all' || card.dataset.cat === activeCat;
+      const pubOk = activePub === 'all' || card.dataset.pub === activePub;
+      card.classList.toggle('hidden', !(catOk && pubOk));
+      if (catOk && pubOk) visible++;
+    });
+    document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  document.querySelectorAll('#cat-filters .pill').forEach(p => {
+    p.addEventListener('click', () => {
+      document.querySelectorAll('#cat-filters .pill').forEach(x => x.classList.remove('on'));
+      p.classList.add('on');
+      activeCat = p.dataset.cat;
+      filterCards();
+    });
+  });
+
+  document.querySelectorAll('#pub-filters .pill').forEach(p => {
+    p.addEventListener('click', () => {
+      document.querySelectorAll('#pub-filters .pill').forEach(x => x.classList.remove('on'));
+      p.classList.add('on');
+      activePub = p.dataset.pub;
+      filterCards();
+    });
+  });
+</script>
+
+</body>
+</html>
