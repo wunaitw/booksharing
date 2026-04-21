@@ -1,7 +1,7 @@
 {
-  "name": "出發！育兒趣",
-  "short_name": "出發！育兒趣",
-  "description": "全台親子景點、餐廳一站搜尋，軟糖媽咪Ivy精選推薦",
+  "name": "跟著軟糖媽咪Ivy閱讀趣",
+  "short_name": "跟著軟糖媽咪Ivy閱讀趣",
+  "description": "這裡有我的閱讀筆記，歡迎一起共讀",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
