@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神經可塑性 — 軟糖媽咪Ivy的閱讀分享</title>
+<link rel="apple-touch-icon" href="../icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZS5ELSJZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8BZS5ELSJZ');
+</script>
+<!-- 不蒜子計數器 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #faf7f2; --warm: #f0ebe0; --brown-light: #d4c4a8;
+    --brown: #8b6f47; --brown-dark: #5c4a32; --ink: #2c2418;
+    --accent: #c17f3e; --text-muted: #9a8570; --border: #e8dfd0;
+  }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .site-header { background: var(--cream); border-bottom: 1px solid var(--border); padding: 1.25rem 1.5rem; text-align: center; }
+  .site-header a { text-decoration: none; }
+  .logo { font-family: 'Noto Serif TC', serif; font-size: clamp(1.1rem, 3vw, 1.6rem); font-weight: 700; color: var(--brown-dark); letter-spacing: 0.08em; display: inline-flex; align-items: center; }
+  .header-avatar { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); margin-right: 8px; }
+  .logo-name { margin: 0 4px 0 2px; }
+  .logo-sep { font-weight: 400; color: var(--text-muted); font-size: 0.75em; margin: 0 2px; }
+  .logo-book { margin-left: 6px; }
+  .back-bar { max-width: 720px; margin: 0 auto; padding: 1.2rem 1rem 0; }
+  .back-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; color: var(--brown); text-decoration: none; transition: color 0.15s; }
+  .back-btn:hover { color: var(--brown-dark); }
+  .back-btn svg { width: 14px; height: 14px; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+  .cover-hero { width: 100%; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; margin-bottom: 1.8rem; box-shadow: 0 4px 20px rgba(140,110,70,0.12); }
+  .cover-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .book-info { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--border); }
+  .book-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .badge { padding: 3px 12px; border-radius: 20px; font-size: 11px; background: var(--warm); color: var(--brown); border: 1px solid var(--brown-light); }
+  .book-info h1 { font-family: 'Noto Serif TC', serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: var(--brown-dark); line-height: 1.4; margin-bottom: 6px; }
+  .book-info .author { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 10px; }
+  .book-info .meta { font-size: 11px; color: var(--text-muted); display: flex; gap: 12px; flex-wrap: wrap; }
+  .buy-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px; border-radius: 8px; font-size: 13px; font-weight: 500; text-decoration: none; background: #fff; color: #d04a00; border: 1.5px solid #d04a00; transition: background 0.18s, color 0.18s; margin-top: 14px; }
+  .buy-btn:hover { background: #d04a00; color: #fff; }
+  .article-body { font-size: 15px; line-height: 2; color: #3a2e24; }
+  .article-body h2 { font-family: 'Noto Serif TC', serif; font-size: 1.15rem; font-weight: 700; color: var(--brown-dark); margin: 2rem 0 0.8rem; padding-left: 12px; border-left: 3px solid var(--accent); }
+  .article-body h3 { font-size: 1rem; font-weight: 700; color: var(--brown); margin: 1.5rem 0 0.6rem; }
+  .article-body p { margin-bottom: 1.2rem; }
+  .article-body ul, .article-body ol { padding-left: 1.4rem; margin-bottom: 1.2rem; }
+  .article-body li { margin-bottom: 0.5rem; }
+  .article-body .highlight { background: #fef6eb; border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 1.2rem 0; font-size: 14px; color: var(--brown-dark); }
+  .pv-bar { font-size: 11px; color: var(--text-muted); margin-top: 6px; }
+  .pv-bar b { color: var(--accent); }
+  .site-footer { text-align: center; padding: 1.5rem; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../index.html">
+    <div class="logo">
+      <img src="../icon-192.png" alt="軟糖媽咪Ivy" class="header-avatar">
+      <span class="logo-name">軟糖媽咪Ivy 的閱讀分享</span>
+      <span class="logo-book">📚</span>
+    </div>
+  </a>
+</header>
+
+<div class="back-bar">
+  <a class="back-btn" href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4l-4 4 4 4"/></svg>
+    回到書單
+  </a>
+</div>
+
+<main class="article-wrap">
+
+  <div class="cover-hero">
+    <img src="https://drive.google.com/thumbnail?id=1_QVbj7xAZqFLKvG7anZfLLSe4nfouUjg&sz=w800" alt="神經可塑性封面">
+  </div>
+
+  <div class="book-info">
+    <div class="book-badges">
+      <span class="badge">知識</span>
+      <span class="badge">麥田</span>
+      <span class="badge">🧠 大腦科學</span>
+      <span class="badge">🌱 自我成長</span>
+    </div>
+    <h1>你的大腦是活的：神經可塑性帶給我的三個生命啟發</h1>
+    <div class="author">妮可・維諾拉 著</div>
+    <div class="meta">
+      <span>2026 / 04 / 21</span>
+      <span>Ivy 推薦</span>
+    </div>
+    <div class="pv-bar">本文瀏覽：<b><span id="busuanzi_value_page_pv">...</span></b> 次</div>
+    <a class="buy-btn" href="https://www.books.com.tw/products/0010990062?sloc=main_mb" target="_blank">🛒 前往博客來購買</a>
+  </div>
+
+  <div class="article-body">
+
+    <p>「老狗玩不出新把戲」，你曾聽過這句話嗎？以前，主流科學界認為大腦在成年後就會停止發育，受損的神經無法再生，性格與智力也隨之定型；而我，也從小在傳統學校教育中，學到「你現在不認真讀書，以後就沒救了！」，彷彿，讀書跟智力只發生在就學期間。然而，近期閱讀了《神經可塑性》，作者是妮可˙維諾拉，推翻了我過往所以為的。</p>
+
+    <p>原來，大腦並非冷冰冰的硬碟，而是一座動態的森林。</p>
+
+    <h2>1. 核心觀念：大腦比你想像中更有「彈性」</h2>
+
+    <p>神經可塑性告訴我們，大腦具備隨環境、行為、思考而改變結構的能力。這不僅僅是學習新知識，而是生理上的實質改變。當我們重複某種行為或思考模式時，相關的神經元會加強連結，這就是加拿大心理學家唐納德·赫布（Donald O. Hebb）所提出的理論。</p>
+
+    <div class="highlight">「Neurons that fire together, wire together.」——同步發火，同步連結。也就是說，我們永遠不必受困於「過去的自己」。不管是壞習慣、創傷記憶，還是某種性格缺陷，在大腦的生理層面上，都是有機會被「重新編碼」的。</div>
+
+    <h2>2. 關於「用進廢退」的警示</h2>
+
+    <p>書中提到一個重要概念：可塑性是一把雙面刃。大腦非常節省資源，如果你不主動鍛鍊大腦，它就會將資源分配給那些「你最常做」的事情上。</p>
+
+    <ul>
+      <li><strong>正面應用：</strong>練習正念（Mindfulness）可以增厚大腦皮質，提升專注力。</li>
+      <li><strong>負面效應：</strong>如果你每天花數小時滑短影音，大腦也會「優化」成適應碎片化資訊的模式，導致深度思考能力退化。</li>
+    </ul>
+
+    <p>這讓我意識到，注意力就是大腦的建築師。我們每一天的選擇，都在雕刻大腦的形狀。這也是郝哥常說的，在現在這個時代，注意力是最可貴的。</p>
+
+    <h2>3. 如何在生活中實踐「大腦改造」？</h2>
+
+    <p>看完書後，我整理了三個可以立即落實的行動：</p>
+
+    <h3>① 擁抱新環境與新挑戰</h3>
+    <p>大腦在處理「新奇」事物時會分泌神經滋養因子（BDNF），這像是大腦的肥料。試著走一條沒走過的路、學習一門外語，都能保持大腦的彈性。我在今年4月初，開始學習架網站與做網頁，這是我過往沒想過的事，畢竟，我是一個「文組生」，怎麼學得會「理組」這種專業呢？但經過兩週，找了線上課程，與搭配AI的協助，基於數據分析的背景，我試著去把台灣的親子景點、餐廳與住宿的資料整理好，架了第一個自己的網站，還買了網域。</p>
+
+    <h3>② 高品質的重複練習</h3>
+    <p>改變不是一蹴而就的。想要建立新習慣，必須透過刻意練習來強化新的神經迴路，直到它比舊的迴路更「粗壯」。所以我在架好了第一個網站後，為了讓這個技能能更加熟練，我又架了旅遊票券比較網站、Excel教學網站與現在這個閱讀筆記網站，為的就是透過刻意練習來強化自己新學的技能。</p>
+
+    <h3>③ 給予大腦修復時間</h3>
+    <p>神經連結的鞏固大多發生在睡眠期。沒有充足的睡眠，再多的學習也是事倍功半。這個是我現在正在努力的，我大概都是一天睡6個小時，最近在做這些作品，常常一天睡不到5小時，所以也是開始調整自己的睡眠時間。</p>
+
+    <h2>結語：一場終身的進化</h2>
+
+    <p>這本書帶給我最大的收穫：希望。</p>
+
+    <p>神經可塑性證明了，只要我們「想要」，改變就具備生理上的可能性。我們不是受到基因與環境的限制，而是大腦的共同創作者。如果你正處於人生的低谷，或是覺得自己某些特質已經根深蒂固，無法改變，請記得：你的大腦正在等待你的指令，準備好重新編織。</p>
+
+    <div class="highlight">下一次當你覺得「我就是這樣的人」時，試著在後面加上兩個字——「目前」。</div>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  © 2026 booksharing.wunaitw.com · 軟糖媽咪Ivy
+</footer>
+
+</body>
+</html>

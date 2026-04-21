@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>思考之道 — 軟糖媽咪Ivy的閱讀分享</title>
+<link rel="apple-touch-icon" href="../icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZS5ELSJZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8BZS5ELSJZ');
+</script>
+<!-- 不蒜子計數器 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #faf7f2;
+    --warm: #f0ebe0;
+    --brown-light: #d4c4a8;
+    --brown: #8b6f47;
+    --brown-dark: #5c4a32;
+    --ink: #2c2418;
+    --accent: #c17f3e;
+    --text-muted: #9a8570;
+    --border: #e8dfd0;
+  }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+
+  /* ── 頁首 ── */
+  .site-header { background: var(--cream); border-bottom: 1px solid var(--border); padding: 1.25rem 1.5rem; text-align: center; }
+  .site-header a { text-decoration: none; }
+  .logo { font-family: 'Noto Serif TC', serif; font-size: clamp(1.1rem, 3vw, 1.6rem); font-weight: 700; color: var(--brown-dark); letter-spacing: 0.08em; display: inline-flex; align-items: center; gap: 0; }
+  .header-avatar { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); margin-right: 8px; }
+  .logo-name { margin: 0 4px 0 2px; }
+  .logo-sep { font-weight: 400; color: var(--text-muted); font-size: 0.75em; margin: 0 2px; }
+  .logo-book { margin-left: 6px; }
+
+  /* ── 返回按鈕 ── */
+  .back-bar { max-width: 720px; margin: 0 auto; padding: 1.2rem 1rem 0; }
+  .back-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; color: var(--brown); text-decoration: none; transition: color 0.15s; }
+  .back-btn:hover { color: var(--brown-dark); }
+  .back-btn svg { width: 14px; height: 14px; }
+
+  /* ── 文章主體 ── */
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+  /* 書封大圖 */
+  .cover-hero { width: 100%; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; margin-bottom: 1.8rem; box-shadow: 0 4px 20px rgba(140,110,70,0.12); }
+  .cover-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* 書籍資訊區 */
+  .book-info { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--border); }
+  .book-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .badge { padding: 3px 12px; border-radius: 20px; font-size: 11px; background: var(--warm); color: var(--brown); border: 1px solid var(--brown-light); }
+  .book-info h1 { font-family: 'Noto Serif TC', serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: var(--brown-dark); line-height: 1.4; margin-bottom: 6px; }
+  .book-info .author { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 10px; }
+  .book-info .meta { font-size: 11px; color: var(--text-muted); display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* 購買按鈕 */
+  .buy-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px; border-radius: 8px; font-size: 13px; font-weight: 500; text-decoration: none; background: #fff; color: #d04a00; border: 1.5px solid #d04a00; transition: background 0.18s, color 0.18s; margin-top: 14px; }
+  .buy-btn:hover { background: #d04a00; color: #fff; }
+
+  /* 文章內容 */
+  .article-body { font-size: 15px; line-height: 2; color: #3a2e24; }
+  .article-body h2 { font-family: 'Noto Serif TC', serif; font-size: 1.15rem; font-weight: 700; color: var(--brown-dark); margin: 2rem 0 0.8rem; padding-left: 12px; border-left: 3px solid var(--accent); }
+  .article-body h3 { font-size: 1rem; font-weight: 700; color: var(--brown); margin: 1.5rem 0 0.6rem; }
+  .article-body p { margin-bottom: 1.2rem; }
+  .article-body ul, .article-body ol { padding-left: 1.4rem; margin-bottom: 1.2rem; }
+  .article-body li { margin-bottom: 0.5rem; }
+  .article-body .highlight { background: #fef6eb; border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 1.2rem 0; font-size: 14px; color: var(--brown-dark); }
+  .article-body .formula { background: var(--warm); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; text-align: center; font-family: 'Noto Serif TC', serif; font-size: 1rem; font-weight: 600; color: var(--brown-dark); margin: 1.2rem 0; }
+
+  /* 本頁瀏覽 */
+  .pv-bar { font-size: 11px; color: var(--text-muted); margin-top: 6px; }
+  .pv-bar b { color: var(--accent); }
+
+  /* 頁尾 */
+  .site-footer { text-align: center; padding: 1.5rem; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../index.html">
+    <div class="logo">
+      <img src="../icon-192.png" alt="軟糖媽咪Ivy" class="header-avatar">
+      <span class="logo-name">軟糖媽咪Ivy 的閱讀分享</span>
+      <span class="logo-book">📚</span>
+    </div>
+  </a>
+</header>
+
+<div class="back-bar">
+  <a class="back-btn" href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4l-4 4 4 4"/></svg>
+    回到書單
+  </a>
+</div>
+
+<main class="article-wrap">
+
+  <!-- 書封 -->
+  <div class="cover-hero">
+    <img src="https://drive.google.com/thumbnail?id=1nlScTqjdVYLaHcpk3WEtsCDLncWUGnCv&sz=w800" alt="思考之道封面">
+  </div>
+
+  <!-- 書籍資訊 -->
+  <div class="book-info">
+    <div class="book-badges">
+      <span class="badge">知識</span>
+      <span class="badge">天下文化</span>
+      <span class="badge">✨ 心法</span>
+      <span class="badge">💼 工作哲學</span>
+    </div>
+    <h1>思考之道</h1>
+    <div class="author">稻盛和夫 著</div>
+    <div class="meta">
+      <span>2026 / 04 / 21</span>
+      <span>Ivy 推薦</span>
+    </div>
+    <div class="pv-bar">本文瀏覽：<b><span id="busuanzi_value_page_pv">...</span></b> 次</div>
+    <a class="buy-btn" href="https://www.books.com.tw/products/0010980523?sloc=main_mb" target="_blank">🛒 前往博客來購買</a>
+  </div>
+
+  <!-- 文章內容 -->
+  <div class="article-body">
+
+    <p>在讀完《納瓦爾寶典》這種極度理性、追求效率的邏輯後，翻開稻盛和夫的《思考之道》，起初可能會覺得它帶點感性、甚至有點「玄學」。但深入讀進去後，我才發現這是一位創業家分享給我們最精煉的「心法」。</p>
+
+    <p>這本書的核心可以用一個簡單的公式貫穿，而這個公式，也徹底解釋了為什麼有些人才華橫溢卻懷才不遇，有些人平凡卻能成就偉業。</p>
+
+    <h2>1. 關鍵的人生方程式</h2>
+
+    <p>稻盛和夫認為，人生或工作的結果是由這三個要素相乘而來的：</p>
+
+    <div class="formula">人生・工作的結果 ＝ 思考方式 × 熱情 × 能力</div>
+
+    <ul>
+      <li><strong>能力（0 到 100）：</strong>這是先天的才智或後天的技能。</li>
+      <li><strong>熱情（0 到 100）：</strong>這是你對目標的執著與努力程度。</li>
+      <li><strong>思考方式（-100 到 +100）：</strong>這是最重要的變數。</li>
+    </ul>
+
+    <div class="highlight">這個公式最驚人之處在於「思考方式」有負分。如果你心術不正、消極抱怨，就算你能力與熱情再強，相乘出來的結果也只會是巨大的負值。這提醒了我們：技能可以磨練，但「起心動念」才是決定結果的方向盤。</div>
+
+    <h2>2. 「利他」並非道德口號，而是最高級的商業邏輯</h2>
+
+    <p>書中反覆提到「利他之心」。很多人誤以為利他就是犧牲自己，但稻盛和夫告訴我們，利他是宇宙運行的底層邏輯。</p>
+
+    <p>當你在做決策時，如果出發點是「為了身邊的人好」、「為了社會好」，你的視角會變得更宏觀，格局也會隨之擴大。這種「善意」會產生一種正向的吸引力，讓原本困難重重的事情，奇蹟般地獲得各方支援。</p>
+
+    <p>這與現代心理學提到的「共好」不謀而合。以我自己為例，我一開始在做親子景點網站的時候，只是想要讓爸媽們在日常育兒時，找出遊景點時，能少一點時間，而這樣做著做著，很多人開始給我不同的回饋，網站越做越完整，也開始有團購的廠商詢問合作。合作的方式還是會是希望能給爸媽們折扣，或是更優惠，這樣才能跟我原先的初衷一致，無論最後是否能談成合作，但自己的用心投入，獲得肯定，就是個很大的動力。</p>
+
+    <h2>3. 所謂「修行」，就在日常的工作之中</h2>
+
+    <p>我最喜歡書中關於「工作觀」的描述。稻盛和夫不認為工作只是賺錢的工具，他把工作視為一種「磨練靈魂的場所」。</p>
+
+    <p>當我們全神貫注於當下的任務，追求極致的品質時，我們的大腦會進入一種純粹的狀態。這種狀態能屏除雜念，讓我們與真實的自我對話。如果你現在覺得工作乏味，這本書會告訴你：改變命運最快的方法，就是先愛上你現在的工作。當愛上你現在正在做的事，你會很容易進入心流狀態，而在無形中不斷地成長。</p>
+
+    <h2>結語：一切始於心，終於心</h2>
+
+    <p>《思考之道》這本書的核心訊息很簡單：「心想事成」是真的，但前提是你必須擁有純粹、強烈且善意的願望。</p>
+
+    <p>這與我之前讀過的《神經可塑性》其實是有關聯的，當你持續維持正面的「思考方式」，你就在重新編織你的神經迴路；當你對目標擁有極致的「熱情」，就是在強化你的認知系統。</p>
+
+    <div class="highlight">如果你正處於人生的分叉路口，不知道該往哪裡走，不如先停下來整理自己的「心靈地圖」。因為現在所面對的現狀，其實是你內心思考後的投影。</div>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  © 2026 booksharing.wunaitw.com · 軟糖媽咪Ivy
+</footer>
+
+</body>
+</html>
