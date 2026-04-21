@@ -389,7 +389,9 @@
       <span class="filter-label">出版社</span>
       <span class="pill on" data-pub="all">全部</span>
       <span class="pill" data-pub="天下文化">天下文化</span>
+      <span class="pill" data-pub="天下雜誌">天下雜誌</span>
       <span class="pill" data-pub="親子天下">親子天下</span>
+      <span class="pill" data-pub="麥田">麥田</span>
       <span class="pill" data-pub="遠流">遠流</span>
       <span class="pill" data-pub="木馬文化">木馬文化</span>
       <span class="pill" data-pub="其他">其他</span>
@@ -400,77 +402,99 @@
   <!-- 新增書卡時，記得在 data-cat 填類別、data-pub 填出版社，要跟上面篩選器一致 -->
   <div class="book-list" id="book-list">
 
-    <!-- 書卡範例 1 -->
-    <article class="book-card" data-cat="小說" data-pub="天下文化">
+    <!-- 書卡 1：思考之道 -->
+    <article class="book-card" data-cat="知識" data-pub="天下文化">
       <div class="book-cover">
-        <!-- 把 src 換成你的書封照片網址（Google Drive / Imgur 都可以） -->
-        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80" alt="書名封面">
-        <span class="cover-badge">小說</span>
+        <img src="https://drive.google.com/thumbnail?id=1nlScTqjdVYLaHcpk3WEtsCDLncWUGnCv&sz=w800" alt="思考之道封面">
+        <span class="cover-badge">知識</span>
         <span class="publisher-badge">天下文化</span>
       </div>
       <div class="book-body">
         <div class="book-meta">
-          <span>2026 / 04 / 10</span>
+          <span>2026 / 04 / 21</span>
           <span class="dot-sep">·</span>
           <span>Ivy 推薦</span>
         </div>
-        <div class="book-title">書名：請在這裡填入書名</div>
-        <div class="book-author">作者：作者姓名</div>
-        <div class="book-excerpt">
-          這裡是摘要或你對這本書的感受，可以寫兩三句話吸引大家想繼續讀下去。
-          例如：這本書讓我重新思考了時間與記憶的關係，很適合喜歡安靜閱讀的朋友。
-          點「閱讀全文」可以看到完整的書評與心得。
-        </div>
+        <div class="book-title">思考之道</div>
+        <div class="book-author">稻盛和夫</div>
+        <div class="book-excerpt">稻盛和夫用一個公式點破人生真相：結果＝思考方式×熱情×能力。能力可以磨練，但「起心動念」才是決定方向的關鍵。利他不是道德口號，而是讓格局擴大、讓好事自然匯聚的底層邏輯。</div>
       </div>
       <div class="book-footer">
         <div class="book-tags">
-          <span class="tag">🌿 療癒</span>
-          <span class="tag">📖 長篇</span>
+          <span class="tag">✨ 心法</span>
+          <span class="tag">💼 工作哲學</span>
         </div>
-        <a class="read-btn" href="posts/book1.html">
+        <a class="read-btn" href="posts/thinking.html">
           閱讀全文
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 8h10M9 4l4 4-4 4"/>
           </svg>
         </a>
-        <!-- 把 href 換成博客來商品連結 -->
-        <a class="buy-btn" href="https://www.books.com.tw/" target="_blank">🛒 博客來購買</a>
+        <a class="buy-btn" href="https://www.books.com.tw/products/0010980523?sloc=main_mb" target="_blank">🛒 博客來購買</a>
       </div>
     </article>
 
-    <!-- 書卡範例 2 -->
-    <article class="book-card" data-cat="散文" data-pub="木馬文化">
+    <!-- 書卡 2：神經可塑性 -->
+    <article class="book-card" data-cat="知識" data-pub="麥田">
       <div class="book-cover">
-        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80" alt="書名封面">
-        <span class="cover-badge">散文</span>
-        <span class="publisher-badge">木馬文化</span>
+        <img src="https://drive.google.com/thumbnail?id=1_QVbj7xAZqFLKvG7anZfLLSe4nfouUjg&sz=w800" alt="神經可塑性封面">
+        <span class="cover-badge">知識</span>
+        <span class="publisher-badge">麥田</span>
       </div>
       <div class="book-body">
         <div class="book-meta">
-          <span>2026 / 04 / 03</span>
+          <span>2026 / 04 / 21</span>
           <span class="dot-sep">·</span>
           <span>Ivy 推薦</span>
         </div>
-        <div class="book-title">書名：請在這裡填入書名</div>
-        <div class="book-author">作者：作者姓名</div>
-        <div class="book-excerpt">
-          這裡是另一本書的摘要。可以寫你最喜歡的一段話，或是讀完之後的感受。
-          這本散文集文字非常細膩，每篇都不長，很適合睡前慢慢讀。
-        </div>
+        <div class="book-title">神經可塑性</div>
+        <div class="book-author">妮可・維諾拉</div>
+        <div class="book-excerpt">神經可塑性推翻了「大腦定型論」——大腦一生都能因行為與思考而改變結構。注意力是大腦的建築師，每天的選擇都在雕刻你的大腦。想改變，永遠不嫌晚，你是自己大腦的共同創作者。</div>
       </div>
       <div class="book-footer">
         <div class="book-tags">
-          <span class="tag">✍️ 散文</span>
-          <span class="tag">🌙 睡前讀</span>
+          <span class="tag">🧠 大腦科學</span>
+          <span class="tag">🌱 自我成長</span>
         </div>
-        <a class="read-btn" href="posts/book2.html">
+        <a class="read-btn" href="posts/brain.html">
           閱讀全文
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 8h10M9 4l4 4-4 4"/>
           </svg>
         </a>
-        <!-- 把 href 換成博客來商品連結 -->
-        <a class="buy-btn" href="https://www.books.com.tw/" target="_blank">🛒 博客來購買</a>
+        <a class="buy-btn" href="https://www.books.com.tw/products/0010990062?sloc=main_mb" target="_blank">🛒 博客來購買</a>
+      </div>
+    </article>
+
+    <!-- 書卡 3：納瓦爾寶典 -->
+    <article class="book-card" data-cat="知識" data-pub="天下雜誌">
+      <div class="book-cover">
+        <img src="https://drive.google.com/thumbnail?id=1kLLTaMu3l56Qlmi9Or7ItsdOo392LIwL&sz=w800" alt="納瓦爾寶典封面">
+        <span class="cover-badge">知識</span>
+        <span class="publisher-badge">天下雜誌</span>
+      </div>
+      <div class="book-body">
+        <div class="book-meta">
+          <span>2026 / 04 / 21</span>
+          <span class="dot-sep">·</span>
+          <span>Ivy 推薦</span>
+        </div>
+        <div class="book-title">納瓦爾寶典</div>
+        <div class="book-author">Naval Ravikant（艾瑞克・喬根森 編）</div>
+        <div class="book-excerpt">納瓦爾用底層邏輯拆解財富與幸福——財富來自槓桿與專長的結合，幸福則是減少欲望、活在當下的選擇。這本書不教你致富，而是教你重建人生的思考演算法。</div>
+      </div>
+      <div class="book-footer">
+        <div class="book-tags">
+          <span class="tag">💡 底層邏輯</span>
+          <span class="tag">🌿 人生哲學</span>
+        </div>
+        <a class="read-btn" href="posts/naval.html">
+          閱讀全文
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+        <a class="buy-btn" href="https://www.books.com.tw/products/E050196158?sloc=main_mb" target="_blank">🛒 博客來購買</a>
       </div>
     </article>
 
