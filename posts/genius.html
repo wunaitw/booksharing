@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天才地帶 — 軟糖媽咪Ivy的閱讀分享</title>
+<link rel="apple-touch-icon" href="../icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZS5ELSJZ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8BZS5ELSJZ');</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#faf7f2;--warm:#f0ebe0;--brown-light:#d4c4a8;--brown:#8b6f47;--brown-dark:#5c4a32;--ink:#2c2418;--accent:#c17f3e;--text-muted:#9a8570;--border:#e8dfd0;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;}
+.site-header{background:var(--cream);border-bottom:1px solid var(--border);padding:1.25rem 1.5rem;text-align:center;}
+.site-header a{text-decoration:none;}
+.logo{font-family:'Noto Serif TC',serif;font-size:clamp(1.1rem,3vw,1.6rem);font-weight:700;color:var(--brown-dark);letter-spacing:0.08em;display:inline-flex;align-items:center;}
+.header-avatar{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid var(--border);margin-right:8px;}
+.logo-book{margin-left:6px;}
+.back-bar{max-width:720px;margin:0 auto;padding:1.2rem 1rem 0;}
+.back-btn{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--brown);text-decoration:none;}
+.back-btn:hover{color:var(--brown-dark);}
+.back-btn svg{width:14px;height:14px;}
+.article-wrap{max-width:720px;margin:0 auto;padding:1.5rem 1rem 4rem;}
+.cover-hero{width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;margin-bottom:1.8rem;box-shadow:0 4px 20px rgba(140,110,70,0.12);}
+.cover-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.book-info{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:2px solid var(--border);}
+.book-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.badge{padding:3px 12px;border-radius:20px;font-size:11px;background:var(--warm);color:var(--brown);border:1px solid var(--brown-light);}
+.book-info h1{font-family:'Noto Serif TC',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--brown-dark);line-height:1.4;margin-bottom:6px;}
+.book-info .author{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:10px;}
+.book-info .meta{font-size:11px;color:var(--text-muted);display:flex;gap:12px;flex-wrap:wrap;}
+.pv-bar{font-size:11px;color:var(--text-muted);margin-top:6px;}
+.pv-bar b{color:var(--accent);}
+.buy-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;background:#fff;color:#d04a00;border:1.5px solid #d04a00;transition:background 0.18s,color 0.18s;margin-top:14px;}
+.buy-btn:hover{background:#d04a00;color:#fff;}
+.article-body{font-size:15px;line-height:2;color:#3a2e24;}
+.article-body h2{font-family:'Noto Serif TC',serif;font-size:1.15rem;font-weight:700;color:var(--brown-dark);margin:2rem 0 0.8rem;padding-left:12px;border-left:3px solid var(--accent);}
+.article-body p{margin-bottom:1.2rem;}
+.article-body ul,.article-body ol{padding-left:1.4rem;margin-bottom:1.2rem;}
+.article-body li{margin-bottom:0.6rem;}
+.article-body .highlight{background:#fef6eb;border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin:1.2rem 0;font-size:14px;color:var(--brown-dark);}
+/* 四地帶卡片 */
+.zones-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.4rem 0;}
+@media(max-width:500px){.zones-grid{grid-template-columns:1fr;}}
+.zone-card{border-radius:10px;padding:14px 16px;border:1px solid var(--border);}
+.zone-card.z1{background:#fdf4f4;border-color:#f0c4c4;}
+.zone-card.z2{background:#fdfaf0;border-color:#e0d4a0;}
+.zone-card.z3{background:#f0f6fd;border-color:#b8d4f0;}
+.zone-card.z4{background:#f0fdf4;border-color:#a0d4b0;}
+.zone-card .zone-label{font-size:10px;font-weight:700;letter-spacing:0.06em;margin-bottom:5px;opacity:0.7;}
+.zone-card .zone-name{font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;color:var(--brown-dark);margin-bottom:5px;}
+.zone-card .zone-desc{font-size:12px;color:#5a4e42;line-height:1.7;}
+.zone-card.z4 .zone-name{color:#2d7a4a;}
+.site-footer{text-align:center;padding:1.5rem;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="../index.html">
+    <div class="logo">
+      <img src="../icon-192.png" alt="軟糖媽咪Ivy" class="header-avatar">
+      軟糖媽咪Ivy 的閱讀分享<span class="logo-book">📚</span>
+    </div>
+  </a>
+</header>
+<div class="back-bar">
+  <a class="back-btn" href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4l-4 4 4 4"/></svg>回到書單
+  </a>
+</div>
+<main class="article-wrap">
+  <div class="cover-hero">
+    <img src="https://drive.google.com/thumbnail?id=11cX77RCEHbCyMmbZ906AtWdHo16nVUhe&sz=w800" alt="天才地帶封面">
+  </div>
+  <div class="book-info">
+    <div class="book-badges"><span class="badge">知識</span><span class="badge">樂金文化</span><span class="badge">✨ 天賦探索</span><span class="badge">🧠 心理成長</span></div>
+    <h1>天才地帶：你的天才，正被負面循環悄悄吞噬</h1>
+    <div class="author">蓋伊・漢德瑞克 著</div>
+    <div class="meta"><span>2026 / 04 / 24</span><span>Ivy 推薦</span></div>
+    <div class="pv-bar">本文瀏覽：<b><span id="busuanzi_value_page_pv">...</span></b> 次</div>
+    <a class="buy-btn" href="https://www.books.com.tw/products/0011047597?srsltid=AfmBOoru_iZ4DlTJZsL8pntOXKGp-pgL0Cj6pzS3mpts0f2jNXUi5yU5" target="_blank">🛒 前往博客來購買</a>
+  </div>
+  <div class="article-body">
+
+    <p>很多人以為，無法發揮潛力是因為不夠努力或時機不對。但蓋伊・漢德瑞克（Gay Hendricks）在《天才地帶》裡說的是，真正阻礙你的，是那個停不下來的負面思考循環。</p>
+
+    <p>我們常常在面臨有機會一展長才的時候，會習慣性地冒出：我真的可以嗎？搞砸了怎麼辦？還是拒絕好了。也因此，如何練習讓自己跳脫這樣的習慣，成了這本書最核心的命題。</p>
+
+    <h2>終結負面循環的關鍵：天才行動</h2>
+
+    <p>書中最核心的實踐工具叫做「天才行動」（Genius Move）。當你發現自己陷入擔憂或負面情緒時，步驟很簡單：</p>
+    <ol>
+      <li>覺察當下的不快樂或身體緊繃感</li>
+      <li>辨識你正在試圖控制什麼</li>
+      <li>帶著好奇心與問題同在</li>
+      <li>採取一個正向行動，把注意力拉回你真正能創造的事</li>
+    </ol>
+
+    <div class="highlight">聽起來容易，但真正練習時才會驚覺，我們有多習慣把能量耗在根本無法改變的事情上。不斷重新承諾，才是真正的改變。</div>
+
+    <h2>四個地帶，你現在住在哪裡？</h2>
+
+    <p>漢德瑞克把日常活動分成四個層次：</p>
+
+    <div class="zones-grid">
+      <div class="zone-card z1">
+        <div class="zone-label">地帶 1</div>
+        <div class="zone-name">挑戰地帶</div>
+        <div class="zone-desc">浪費大量時間和精力，但成果不如人。</div>
+      </div>
+      <div class="zone-card z2">
+        <div class="zone-label">地帶 2</div>
+        <div class="zone-name">能力地帶</div>
+        <div class="zone-desc">自己擅長，但別人也擅長甚至更擅長。</div>
+      </div>
+      <div class="zone-card z3">
+        <div class="zone-label">地帶 3 ⚠️</div>
+        <div class="zone-name">優勢地帶</div>
+        <div class="zone-desc">表現優異、領著高薪，但這是「舒適圈的陷阱」。你只是在滿足世界的期待，而非發揮靈魂的特質。</div>
+      </div>
+      <div class="zone-card z4">
+        <div class="zone-label">地帶 4 ✨</div>
+        <div class="zone-name">天才地帶</div>
+        <div class="zone-desc">你的甜蜜點。時間感消失，創造力自然流淌，你所做的事幾乎是「不費力」的。</div>
+      </div>
+    </div>
+
+    <p>其中最危險的，反而是「優勢地帶」——你表現出色、備受肯定，但那只是在滿足外界期待，而不是在發揮你真正獨特的天賦。很多人一輩子困在這裡，誤以為這就是成功的終點。</p>
+
+    <div class="highlight">天才地帶的定義很精準：你在做自己熱愛的事，同時為世界帶來獨一無二的貢獻，創造力在這裡自然流淌，時間感彷彿消失。現在的你的工作，是落在哪個地帶呢？</div>
+
+    <h2>每天重新承諾，才是真正的改變</h2>
+
+    <p>書裡有一句話讓我很有共鳴：重要的不是你承諾了一次，而是你願意每天重新承諾。改變不是讀完一本書就完成的事，而是每天再一次選擇——把時間和注意力給天才地帶，哪怕只是多十分鐘。</p>
+
+    <p>這個視角讓這本書不只是一本讀完就放回書架的勵志讀物，而是一本可以帶著走、反覆練習的行動指南。</p>
+
+    <div class="highlight">漢德瑞克建議我們每天問自己：「我如何能把大多數時間，花在我最熱愛且能對世界做出最大貢獻的事情上？」</div>
+
+  </div>
+</main>
+<footer class="site-footer">© 2026 booksharing.wunaitw.com · 軟糖媽咪Ivy</footer>
+</body>
+</html>
