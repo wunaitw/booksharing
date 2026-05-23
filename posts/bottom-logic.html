@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>底層邏輯 — 軟糖媽咪Ivy的閱讀分享</title>
+<link rel="apple-touch-icon" href="../icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZS5ELSJZ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8BZS5ELSJZ');</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#faf7f2;--warm:#f0ebe0;--brown-light:#d4c4a8;--brown:#8b6f47;--brown-dark:#5c4a32;--ink:#2c2418;--accent:#c17f3e;--text-muted:#9a8570;--border:#e8dfd0;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;}
+.site-header{background:var(--cream);border-bottom:1px solid var(--border);padding:1.25rem 1.5rem;text-align:center;}
+.site-header a{text-decoration:none;}
+.logo{font-family:'Noto Serif TC',serif;font-size:clamp(1.1rem,3vw,1.6rem);font-weight:700;color:var(--brown-dark);letter-spacing:0.08em;display:inline-flex;align-items:center;}
+.header-avatar{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid var(--border);margin-right:8px;}
+.logo-book{margin-left:6px;}
+.back-bar{max-width:720px;margin:0 auto;padding:1.2rem 1rem 0;}
+.back-btn{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--brown);text-decoration:none;}
+.back-btn:hover{color:var(--brown-dark);}
+.back-btn svg{width:14px;height:14px;}
+.article-wrap{max-width:720px;margin:0 auto;padding:1.5rem 1rem 4rem;}
+.cover-hero{width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;margin-bottom:1.8rem;box-shadow:0 4px 20px rgba(140,110,70,0.12);}
+.cover-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.book-info{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:2px solid var(--border);}
+.book-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.badge{padding:3px 12px;border-radius:20px;font-size:11px;background:var(--warm);color:var(--brown);border:1px solid var(--brown-light);}
+.book-info h1{font-family:'Noto Serif TC',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--brown-dark);line-height:1.4;margin-bottom:6px;}
+.book-info .author{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:10px;}
+.book-info .meta{font-size:11px;color:var(--text-muted);display:flex;gap:12px;flex-wrap:wrap;}
+.pv-bar{font-size:11px;color:var(--text-muted);margin-top:6px;}
+.pv-bar b{color:var(--accent);}
+.buy-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;background:#fff;color:#ee4d2d;border:1.5px solid #ee4d2d;transition:background 0.18s,color 0.18s;margin-top:14px;}
+.buy-btn:hover{background:#ee4d2d;color:#fff;}
+.article-body{font-size:15px;line-height:2;color:#3a2e24;}
+.article-body h2{font-family:'Noto Serif TC',serif;font-size:1.15rem;font-weight:700;color:var(--brown-dark);margin:2rem 0 0.8rem;padding-left:12px;border-left:3px solid var(--accent);}
+.article-body p{margin-bottom:1.2rem;}
+.article-body ul{padding-left:1.4rem;margin-bottom:1.2rem;}
+.article-body li{margin-bottom:0.6rem;}
+.article-body .highlight{background:#fef6eb;border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin:1.2rem 0;font-size:14px;color:var(--brown-dark);}
+/* 四詞對比 */
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.2rem 0;}
+@media(max-width:500px){.concept-grid{grid-template-columns:1fr;}}
+.concept-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:13px 15px;}
+.concept-card .c-title{font-weight:700;font-size:13px;color:var(--brown-dark);margin-bottom:5px;}
+.concept-card .c-desc{font-size:12px;color:#5a4e42;line-height:1.75;}
+/* Level 卡片 */
+.level-list{display:flex;flex-direction:column;gap:8px;margin:1.2rem 0;}
+.level-card{display:flex;align-items:flex-start;gap:12px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 15px;}
+.level-badge{flex-shrink:0;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff;}
+.level-badge.l1{background:#c9b8a8;}
+.level-badge.l2{background:#b8a898;}
+.level-badge.l3{background:#a07850;}
+.level-badge.l4{background:#7a5c3a;}
+.level-badge.l5{background:#5c4a32;}
+.level-content .l-title{font-weight:700;font-size:13px;color:var(--brown-dark);margin-bottom:3px;}
+.level-content .l-desc{font-size:12px;color:#5a4e42;line-height:1.7;}
+.site-footer{text-align:center;padding:1.5rem;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="../index.html">
+    <div class="logo">
+      <img src="../icon-192.png" alt="軟糖媽咪Ivy" class="header-avatar">
+      軟糖媽咪Ivy 的閱讀分享<span class="logo-book">📚</span>
+    </div>
+  </a>
+</header>
+<div class="back-bar">
+  <a class="back-btn" href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4l-4 4 4 4"/></svg>回到書單
+  </a>
+</div>
+<main class="article-wrap">
+  <div class="cover-hero">
+    <img src="https://drive.google.com/thumbnail?id=190WsnvXofQnrTErYt5G_2xWkYL0tVkff&sz=w800" alt="底層邏輯封面">
+  </div>
+  <div class="book-info">
+    <div class="book-badges"><span class="badge">知識</span><span class="badge">時報文化</span><span class="badge">🧩 思維框架</span><span class="badge">💡 底層邏輯</span></div>
+    <h1>底層邏輯：看透世界運作的思維框架</h1>
+    <div class="author">劉潤 著</div>
+    <div class="meta"><span>2026 / 05 / 11</span><span>Ivy 推薦</span></div>
+    <div class="pv-bar">本文瀏覽：<b><span id="busuanzi_value_page_pv">...</span></b> 次</div>
+    <a class="buy-btn" href="https://s.shopee.tw/9Kf6pehrtQ" target="_blank">🛒 前往蝦皮購買</a>
+  </div>
+  <div class="article-body">
+
+    <p>前陣子網路很常提到的《底層邏輯》，看到圖書館排了近1000多人，決定買來看！上週剛看完經濟學的書，而這本的一開頭就從經濟學出發，延伸至商業思維與邏輯思考，因此，無論你是上班族或是創業者，都是一本值得閱讀的好書。</p>
+
+    <p>不知道你是否遇過這樣的情況：明明很努力，卻覺得自己沒有在前進，處於原地踏步的狀態？抑或是，有些想不通的觀念或理論，跟某些人討論後，馬上被點醒。讀完《底層邏輯》，我才發現問題不在於努力不夠或是經驗不足，而是個人思維層次的差異。</p>
+
+    <h2>這本書在說什麼？</h2>
+
+    <p>作者劉潤在這本書裡拆解了一件事：為什麼同樣面對問題，有些人看到現象，有些人卻能看穿本質？答案就藏在「底層邏輯」裡——那些跨領域都通用的思維規律，那些跨時代不變的規律。</p>
+
+    <div class="highlight">這本書中有很多的「名詞」需要被記住與了解，有時前面出現過，但後面又會提到。如果沒有理解清楚，可能會到後面搞混。建議邊讀邊做筆記，效果更好。</div>
+
+    <h2>① 事實、觀點、立場、信仰</h2>
+
+    <p>我們常常聽到這四個詞，但應用到生活中，有時卻很難一下就辨別清楚。</p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="c-title">📌 事實</div>
+        <div class="c-desc">客觀存在、可被驗證的陳述，不因立場而改變。</div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">💬 觀點</div>
+        <div class="c-desc">基於事實的個人詮釋與判斷，可以討論與修正。</div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">⚖️ 立場</div>
+        <div class="c-desc">受你的位置和利益所影響，不同位置自然有不同立場。</div>
+      </div>
+      <div class="concept-card">
+        <div class="c-title">🙏 信仰</div>
+        <div class="c-desc">信仰之下根本沒有對錯可言，是最深層的價值認同。</div>
+      </div>
+    </div>
+
+    <div class="highlight">下次跟人討論前，先問自己：我說的是事實、觀點，還是只是我的立場？這個問題能幫你避開很多無謂的爭論。</div>
+
+    <h2>② 邏輯閉環的五個層次</h2>
+
+    <p>這是我覺得最有衝擊力的部分。作者把人的思維分成五個 Level：</p>
+
+    <div class="level-list">
+      <div class="level-card">
+        <div class="level-badge l1">L1</div>
+        <div class="level-content">
+          <div class="l-title">既沒有思維框架，思考也沒有邏輯</div>
+          <div class="l-desc">憑感覺做決定，無法解釋自己為何這樣選擇。</div>
+        </div>
+      </div>
+      <div class="level-card">
+        <div class="level-badge l2">L2</div>
+        <div class="level-content">
+          <div class="l-title">思維沒有框架，但思考有邏輯</div>
+          <div class="l-desc">能講道理，但缺乏系統性的思考架構。</div>
+        </div>
+      </div>
+      <div class="level-card">
+        <div class="level-badge l3">L3</div>
+        <div class="level-content">
+          <div class="l-title">思維有框架，思考也有邏輯，但框架層次低</div>
+          <div class="l-desc">有方法論，但視野受限，看不到更高維度的問題。</div>
+        </div>
+      </div>
+      <div class="level-card">
+        <div class="level-badge l4">L4</div>
+        <div class="level-content">
+          <div class="l-title">有完整邏輯框架，層次更高，但對新事物排斥</div>
+          <div class="l-desc">思維成熟但趨於固化，容易用已有框架否定新觀念。</div>
+        </div>
+      </div>
+      <div class="level-card">
+        <div class="level-badge l5">L5 ✨</div>
+        <div class="level-content">
+          <div class="l-title">不斷打碎自己，保持開放心態，一次次重新站起來</div>
+          <div class="l-desc">願意讓自己歸零，持續迭代，這是最高層次的思維狀態。</div>
+        </div>
+      </div>
+    </div>
+
+    <p>看到這裡我問自己：我現在在哪個 Level？以及，如何在提升自我的思維與思考層次。說實話，有點汗顏，但也因此更有前進的動力。</p>
+
+    <h2>③ 複利思維不只是錢的事</h2>
+
+    <p>複利公式是：本金 × 複利率 × 時間。但這個公式不只適用於投資，更適用於人生——從個人能力、健康，到人際關係，都可以用複利在累積。</p>
+
+    <div class="highlight">重點是：要早點在穩定的事上開始，並且降低自身風險與惰性。這跟《原子習慣》說的「每天進步1%」、《小狗錢錢》說的「養大你的鵝」，其實是同一件事的不同說法。</div>
+
+    <h2>適合誰讀？</h2>
+
+    <p>如果你是一個喜歡「知道為什麼」多於「知道怎麼做」的人，這本書很適合你。書中沒有具體的 SOP，而是藉由引導，讓你建構一套可以自己推導答案的思維工具。</p>
+
+    <p>期許自己能建構出有能力不斷打碎自己、以重新成長的思維框架與思考邏輯。</p>
+
+  </div>
+</main>
+<footer class="site-footer">© 2026 booksharing.wunaitw.com · 軟糖媽咪Ivy</footer>
+</body>
+</html>
