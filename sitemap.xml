@@ -19,6 +19,12 @@
 
   <!-- 全文頁面 -->
   <url>
+    <loc>https://booksharing.wunaitw.com/posts/one-second-habit.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://booksharing.wunaitw.com/posts/bottom-logic.html</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
