@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一秒習慣的奇蹟 — 軟糖媽咪Ivy的閱讀分享</title>
+<link rel="apple-touch-icon" href="../icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZS5ELSJZ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8BZS5ELSJZ');</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#faf7f2;--warm:#f0ebe0;--brown-light:#d4c4a8;--brown:#8b6f47;--brown-dark:#5c4a32;--ink:#2c2418;--accent:#c17f3e;--text-muted:#9a8570;--border:#e8dfd0;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;}
+.site-header{background:var(--cream);border-bottom:1px solid var(--border);padding:1.25rem 1.5rem;text-align:center;}
+.site-header a{text-decoration:none;}
+.logo{font-family:'Noto Serif TC',serif;font-size:clamp(1.1rem,3vw,1.6rem);font-weight:700;color:var(--brown-dark);letter-spacing:0.08em;display:inline-flex;align-items:center;}
+.header-avatar{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid var(--border);margin-right:8px;}
+.logo-book{margin-left:6px;}
+.back-bar{max-width:720px;margin:0 auto;padding:1.2rem 1rem 0;}
+.back-btn{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--brown);text-decoration:none;}
+.back-btn:hover{color:var(--brown-dark);}
+.back-btn svg{width:14px;height:14px;}
+.article-wrap{max-width:720px;margin:0 auto;padding:1.5rem 1rem 4rem;}
+.cover-hero{width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;margin-bottom:1.8rem;box-shadow:0 4px 20px rgba(140,110,70,0.12);}
+.cover-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.book-info{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:2px solid var(--border);}
+.book-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.badge{padding:3px 12px;border-radius:20px;font-size:11px;background:var(--warm);color:var(--brown);border:1px solid var(--brown-light);}
+.book-info h1{font-family:'Noto Serif TC',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--brown-dark);line-height:1.4;margin-bottom:6px;}
+.book-info .author{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:10px;}
+.book-info .meta{font-size:11px;color:var(--text-muted);display:flex;gap:12px;flex-wrap:wrap;}
+.pv-bar{font-size:11px;color:var(--text-muted);margin-top:6px;}
+.pv-bar b{color:var(--accent);}
+.buy-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;background:#fff;color:#d04a00;border:1.5px solid #d04a00;transition:background 0.18s,color 0.18s;margin-top:14px;}
+.buy-btn:hover{background:#d04a00;color:#fff;}
+.article-body{font-size:15px;line-height:2;color:#3a2e24;}
+.article-body h2{font-family:'Noto Serif TC',serif;font-size:1.15rem;font-weight:700;color:var(--brown-dark);margin:2rem 0 0.8rem;padding-left:12px;border-left:3px solid var(--accent);}
+.article-body p{margin-bottom:1.2rem;}
+.article-body ol{padding-left:1.4rem;margin-bottom:1.2rem;}
+.article-body ol li{margin-bottom:0.5rem;}
+.article-body .highlight{background:#fef6eb;border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin:1.2rem 0;font-size:14px;color:var(--brown-dark);}
+/* 8個習慣卡片 */
+.habit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.2rem 0;}
+@media(max-width:500px){.habit-grid{grid-template-columns:1fr;}}
+.habit-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:13px 15px;}
+.habit-card .h-num{font-size:10px;font-weight:700;color:var(--accent);margin-bottom:4px;letter-spacing:0.05em;}
+.habit-card .h-title{font-weight:700;font-size:13px;color:var(--brown-dark);margin-bottom:5px;}
+.habit-card .h-desc{font-size:12px;color:#5a4e42;line-height:1.75;}
+/* 堅持五步驟 */
+.steps-list{counter-reset:step;display:flex;flex-direction:column;gap:8px;margin:1.2rem 0;}
+.step-item{display:flex;align-items:flex-start;gap:12px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 15px;}
+.step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.step-text{font-size:13px;color:var(--brown-dark);font-weight:500;line-height:1.6;padding-top:4px;}
+.site-footer{text-align:center;padding:1.5rem;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="../index.html">
+    <div class="logo">
+      <img src="../icon-192.png" alt="軟糖媽咪Ivy" class="header-avatar">
+      軟糖媽咪Ivy 的閱讀分享<span class="logo-book">📚</span>
+    </div>
+  </a>
+</header>
+<div class="back-bar">
+  <a class="back-btn" href="../index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4l-4 4 4 4"/></svg>回到書單
+  </a>
+</div>
+<main class="article-wrap">
+  <div class="cover-hero">
+    <img src="https://drive.google.com/thumbnail?id=1EJoxiCutjlsJ6-EbuWqujaMfcl9Gjbcp&sz=w800" alt="一秒習慣的奇蹟封面">
+  </div>
+  <div class="book-info">
+    <div class="book-badges"><span class="badge">知識</span><span class="badge">樂金文化</span><span class="badge">🌅 晨型生活</span><span class="badge">🔄 習慣養成</span></div>
+    <h1>一秒習慣的奇蹟</h1>
+    <div class="author">西崎俊輔 著</div>
+    <div class="meta"><span>2026 / 05 / 18</span><span>Ivy 推薦</span></div>
+    <div class="pv-bar">本文瀏覽：<b><span id="busuanzi_value_page_pv">...</span></b> 次</div>
+    <a class="buy-btn" href="https://www.books.com.tw/products/0011052643?sloc=main" target="_blank">🛒 前往博客來購買</a>
+  </div>
+  <div class="article-body">
+
+    <div class="highlight">「閱讀的意義在於尋找可以應用到生活的部分」</div>
+
+    <p>這本書的重點在於強調早起的好處，這讓曾經也是晨型人的我，十分感興趣——該如何做，才能再次找回晨型生活呢？</p>
+
+    <p>以往看書都習慣第一次先快速閱讀完，邊看邊畫重點，第二次深讀時，再針對第一次閱讀畫的重點，去深思有哪些可以應用在生活中。而這次，決定邊讀邊開始實踐書中說的方法，以找回失去的晨型生活。</p>
+
+    <p>不同於《上班前的關鍵一小時》，這本書蒐集了各種你我常聽過的成功人士的例子，讓我們能更了解早起的好處，並且針對大家常無法早起的痛點，提出解決的方式。我也照著作者的建議，目前已持續了 6 天，每天早起一小時來執行作者說的 8 個習慣。</p>
+
+    <h2>早起的 8 個晨間習慣</h2>
+
+    <div class="habit-grid">
+      <div class="habit-card">
+        <div class="h-num">習慣 01</div>
+        <div class="h-title">🧘 冥想</div>
+        <div class="h-desc">透過呼吸來感謝活著這件事，只要一秒鐘集中，注意力就會提高。上了半年瑜伽後，這次執行起來意外地順手。</div>
+      </div>
+      <div class="habit-card">
+        <div class="h-num">習慣 02</div>
+        <div class="h-title">✨ 觀想</div>
+        <div class="h-desc">將理想人生視覺化，讓潛意識建立起畫面，進而實現。具象化不是漫無目的的許願，否則心中反而會產生抗拒。</div>
+      </div>
+      <div class="habit-card">
+        <div class="h-num">習慣 03</div>
+        <div class="h-title">📖 閱讀</div>
+        <div class="h-desc">閱讀讓我們學著對自己提問，在有限的時間內做最好的決定，並從書中案例中學習，改善現有的生活。</div>
+      </div>
+      <div class="habit-card">
+        <div class="h-num">習慣 04</div>
+        <div class="h-title">💬 肯定</div>
+        <div class="h-desc">言語影響想法，想法影響行為，行為決定選擇，選擇決定命運。從口中說出的每一個字，都息息相關著我們的生活。</div>
+      </div>
+      <div class="habit-card">
+        <div class="h-num">習慣 05</div>
+        <div class="h-title">🧹 清潔</div>
+        <div class="h-desc">習慣把東西物歸原處，避免把珍貴的時間花在尋找上，讓每天都能從清爽的環境開始。</div>
+      </div>
+      <div class="habit-card">
+        <div class="h-num">習慣 06</div>
+        <div class="h-title">🎯 學習</div>
+        <div class="h-desc">閱讀是最快的學習方式。想學新技能，也可以參加相關團體活動，藉由互動經驗分享，克服學習上的困難。</div>
+      </div>
+      <div class="habit-card">
+        <div class="h-num">習慣 07</div>
+        <div class="h-title">🏃 運動</div>
+        <div class="h-desc">「端粒」是人體的老化時鐘，有運動習慣的人端粒不會變短。由小到大，循序漸進，快樂運動才能持久。</div>
+      </div>
+      <div class="habit-card">
+        <div class="h-num">習慣 08</div>
+        <div class="h-title">✍️ 書寫</div>
+        <div class="h-desc">書寫是一種治癒，每次書寫能重新整理大腦中的思緒。早晨寫「感恩日記」，可以提升幸福感與應對能力。</div>
+      </div>
+    </div>
+
+    <h2>如何建立「堅持」的決心？</h2>
+
+    <p>這八個習慣的核心，就是堅持。唯有持續不斷地改善，才能讓自己的生活更美好，也更有意義。作者提出五個方法：</p>
+
+    <div class="steps-list">
+      <div class="step-item"><div class="step-num">1</div><div class="step-text">訂一個盼望已久的目標</div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-text">向自己提出問題</div></div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-text">給自己即刻獎賞</div></div>
+      <div class="step-item"><div class="step-num">4</div><div class="step-text">樹立絕對的信心</div></div>
+      <div class="step-item"><div class="step-num">5</div><div class="step-text">睡前也要實踐</div></div>
+    </div>
+
+    <div class="highlight">推薦給想要改善自己生活，卻苦無解法的朋友們。改變不需要一次到位，只要每天早起一小時，從一個習慣開始，奇蹟就會慢慢發生。</div>
+
+  </div>
+</main>
+<footer class="site-footer">© 2026 booksharing.wunaitw.com · 軟糖媽咪Ivy</footer>
+</body>
+</html>
